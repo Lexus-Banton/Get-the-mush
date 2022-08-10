@@ -69,14 +69,25 @@ function displayFriends() {
         // this is a clickable list, so . . .
         //     add an event listener to each friend
         const friendEl = renderFriend(friend);
+       
+        
 
         friendEl.addEventListener('click', () => {
-            if (friend.satisfaction < 3 && mushroomCount > 0) {
-                mushroomCount--;
-                friend.satisfaction++;
-                displayFriends();
-                displayMushrooms();
+            if (friend.satisfaction >= 3) {
+                alert('They can eat no more mushrooms');
             }
+            if (mushroomCount === 0) {
+                alert(' Forage for more Mushrooms!');
+            }
+            if (friend.satisfaction < 3 && mushroomCount > 0) {
+                friend.satisfaction++;
+                mushroomCount--;
+            }
+
+           
+           
+            displayFriends();
+            displayMushrooms();
         });
 
         friendsEl.append(friendEl);
