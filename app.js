@@ -72,6 +72,7 @@ function displayFriends() {
 
         friendEl.addEventListener('click', () => {
             if (friend.satisfaction < 3 && mushroomCount > 0) {
+                mushroomCount--;
                 friend.satisfaction++;
                 displayFriends();
                 displayMushrooms();
@@ -94,6 +95,8 @@ function displayMushrooms() {
 
     for (let i = 0; i < mushroomCount; i++) {
         // for each mushroom in your mushroom state, render and append a mushroom
+        const mushroomCount = renderMushroom(mushroomsEl);
+        mushroomsEl.append(mushroomCount);
     }
 }
 
